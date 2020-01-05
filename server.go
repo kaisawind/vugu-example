@@ -11,7 +11,6 @@ import (
 	"os"
 	"path/filepath"
 
-	_ "github.com/kaisawind/protocol/src"
 	"github.com/sirupsen/logrus"
 	"github.com/vugu/vugu/simplehttp"
 )
@@ -39,6 +38,11 @@ func main() {
 		return
 	}
 	logrus.Infoln("Starting HTTP Server at", address)
+
+	simplehttp.DefaultStaticData["CSSFiles"] = []string{
+		"/static/css/bootstrap.min.css",
+	}
+	simplehttp.DefaultStaticData["Title"] = "协议解析"
 	h := simplehttp.New(wd, *dev)
 	logrus.Fatal(http.ListenAndServe(address, h))
 }

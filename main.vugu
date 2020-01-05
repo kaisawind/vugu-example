@@ -11,7 +11,7 @@
     }
 
     func (comp *Main) NewData(props vugu.Props) (interface{}, error) {
-        data := &RootData{
+        data := &MainData{
             Test: "hello world",
         }
         return data, nil
