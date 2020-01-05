@@ -11,6 +11,7 @@ import (
 	"os"
 	"path/filepath"
 
+	_ "github.com/kaisawind/protocol/src"
 	"github.com/sirupsen/logrus"
 	"github.com/vugu/vugu/simplehttp"
 )
@@ -35,8 +36,9 @@ func main() {
 	_, err = net.ResolveTCPAddr("tcp", address)
 	if err != nil {
 		logrus.WithError(err).Errorln("resolve tcp addr error")
+		return
 	}
-	logrus.Infoln("Starting HTTP Server at ", address)
+	logrus.Infoln("Starting HTTP Server at", address)
 	h := simplehttp.New(wd, *dev)
-	logrus.Fatal(http.ListenAndServe(*host, h))
+	logrus.Fatal(http.ListenAndServe(address, h))
 }

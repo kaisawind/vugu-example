@@ -1,0 +1,11 @@
+<div class="root">
+    <main></main>
+</div>
+
+<style>
+</style>
+
+<script type="application/x-go">
+    type RootData struct {
+    }
+</script>

@@ -1,0 +1,19 @@
+<div class="main">
+    <div vg-html="data.Test"></div>
+</div>
+
+<style>
+</style>
+
+<script type="application/x-go">
+    type MainData struct {
+        Test string
+    }
+
+    func (comp *Main) NewData(props vugu.Props) (interface{}, error) {
+        data := &RootData{
+            Test: "hello world",
+        }
+        return data, nil
+    }
+</script>
